@@ -1,0 +1,18 @@
+<%= nav_bar fixed: :top, brand: "John-Michael", responsive: true do %>
+  <%= menu_group do %>
+    <%= menu_item "Home", root_path %>
+    <%= menu_divider %>
+    
+    <%= drop_down "Products" do %>
+    
+      <%= menu_item "Things you can't afford", "#" %>
+      <%= menu_item "Things that won't suit you anyway", "#" %>
+      <%= menu_item "Things you're not even cool enough to buy anyway", "#" %>
+      
+    <% end %>
+  
+    <%= menu_item "About Us", about_path %>
+    <%= menu_item "Contact", "#" %>
+  <% end %>
+  
+<% end %>
