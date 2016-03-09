@@ -1,5 +1,7 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.description %></p>
-<%= link_to "Edit this article", edit_article_path(@article) %>
-<br>
-<%= link_to "Back to articles", articles_path %>
+<div class="container">
+  <h1><%= @article.title %></h1>
+  <p><%= @article.description %></p>
+  <%= link_to "Edit this article", edit_article_path(@article) %>
+  <br>
+  <%= link_to "Back to articles", articles_path %>
+</div>
