@@ -1,6 +1,63 @@
-$navbar-default-bg: #08088A;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Raleway:400,300,700);
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import url(https://developers.google.com/api-client-library/ruby/apis/webfonts/v1?hl=en)
+$header: #1f4e5f;
+$backgrounds: #f4f7f7;
+$links: #79a8a9;
+$hover: #aacfd0;
+$primary: #333;
+$font-stack: 'Raleway', sans-serif;
+
+html, body {
+  font: {
+    family: $font-stack;
+    size: 15px;
+    weight: 400;
+  }
+  padding-top: 70px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $header;
+  text-transform: uppercase;
+}
+
+a {
+  color: $links;
+}
+
+a:hover {
+  color: $hover;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  float: left;
+  font-size: 1.7em;
+  color: $header !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar-brand a:hover {
+  color: $hover;
+}
+
+.navbar-default {
+  background-color: $backgrounds;
+}
+
+.nav.navbar-nav {
   
+  li a {
+    color: $links;
+    text-transform: uppercase;
+  }
+  li a:hover {
+    color: $hover;
+  }
+  
+  li .active {
+    color: $primary;
+    background-color: $hover;
+  }
+}
