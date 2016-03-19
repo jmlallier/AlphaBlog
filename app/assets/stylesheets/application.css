@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar.navbar-default.navbar-fixed-top {
+  border-bottom: none;
+}

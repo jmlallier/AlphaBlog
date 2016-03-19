@@ -1,9 +1,16 @@
-<%= nav_bar fixed: :top, brand: "John-Michael", responsive: true do %>
-  <%= menu_group do %>
-    <%= menu_item "Home", root_path %>      
-    <%= menu_item "About Me", about_path %>
-    <%= menu_item "Blog", articles_path %>
-    <%= menu_item "Contact", "#" %>
-  <% end %>
+   <%= nav_bar fixed: :top, brand: "John-Michael", responsive: true do %>
+    
+     <%= menu_group do %>
+      <%= menu_item "Home", root_path %>      
+      <%= menu_item "About Me", about_path %>
+      <%= menu_item "Blog", articles_path %>
+      <%= menu_item "Contact", "#" %>
+    <% end %>
+    
+     <%= menu_group pull: :right do %>
+      <%= drop_down "Actions" do %>
+        <%= menu_item "Create new article", new_article_path %>
+      <% end %>
+    <% end %>
   
-<% end %>
+  <% end %>

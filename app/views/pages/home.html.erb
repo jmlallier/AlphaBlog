@@ -1,4 +1,12 @@
-<div class="container">
-  <h1>This is the homepage for my Alpha Blog</h1>
-  <p class="lead">If you'd like to learn more, <%= link_to "check me out", about_path %> | Or visit the <%= link_to "Alpha Blog" , articles_path %></p>
-</div>
+<section id="main">
+  <div class="container">
+    <div class="row">
+    
+       <h1>This is the homepage for my Alpha Blog</h1>
+    
+      <p class="lead">If you'd like to learn more, <%= link_to "check me out", about_path %></p>
+      <p class="lead">Or visit the <%= link_to "Alpha Blog" , articles_path %></p>
+      <%= link_to "Create new article", new_article_path, class: "btn btn-default btn-lg" %>
+    </div>
+  </div>
+</section>

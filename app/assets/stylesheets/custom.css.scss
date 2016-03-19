@@ -3,9 +3,10 @@
 $header: #1f4e5f;
 $backgrounds: #f4f7f7;
 $links: #79a8a9;
-$hover: #aacfd0;
+$hover: #79a8a9;
+$lblue: #aacfd0;
 $primary: #333;
-$font-stack: 'Raleway', sans-serif;
+$font-stack: 'Open Sans', sans-serif;
 
 html, body {
   font: {
@@ -13,8 +14,12 @@ html, body {
     size: 15px;
     weight: 400;
   }
-  padding-top: 70px;
+  padding-top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   color: $header;
@@ -30,34 +35,179 @@ a:hover {
   text-decoration: none;
 }
 
-.navbar-brand {
+nav {
+  
+  .navbar-brand {
   float: left;
   font-size: 1.7em;
   color: $header !important;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+  }
 
-.navbar-brand a:hover {
-  color: $hover;
-}
+  .navbar-brand a:hover {
+    color: $hover !important;
+  }
 
-.navbar-default {
-  background-color: $backgrounds;
-}
+  .navbar-default {
+    background-color: $backgrounds;
+    height: 50px;
+    line-height: 50px;
+  }
 
-.nav.navbar-nav {
+  .nav.navbar-nav {
   
-  li a {
+    ul {
+      margin: 0;
+      padding: 0;
+      border: 0px;
+    }
+    
+    li:hover {
+      background-color: $lblue;
+    }
+
+    li a {
+      color: $links;
+      text-transform: uppercase;
+    }
+    li a:hover {
+      color: $primary;
+    }
+
+    li.active a {
+      color: $primary;
+      background-color: $lblue !important;
+    }
+  }
+}
+
+#content {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  clear: both;
+  min-height: 100vh;
+  margin-top: 50px;
+}
+
+
+#main {
+  color: $primary;
+  background-image: asset-url('JohnMichaelAngelique-672.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  
+  h1 {
+    color: $primary;
+  }
+  
+  .btn.btn-default {
+    background-color: $links !important;
+    border: none;
+    text-transform: uppercase !important;
+  }
+
+  .btn.btn-default:hover {
+    background-color: $hover !important;
+    border: none;
+  }
+
+  a.active {
+      color: $primary;
+      background-color: $hover;
+    }
+  
+  
+
+}
+
+#next {
+  color: $primary;
+  
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  h1 {
+    color: $header;
+  }
+  a {
+    .btn-new {
+      background-color: $links;
+      text-transform: uppercase;
+    }
+
+    .btn-new {
+      background-color: $hover;
+    }
+
+    .active {
+      color: $primary;
+      background-color: $hover;
+    }
+
+  }
+
+}
+
+footer {
+  position: relative;
+  height: 80px;
+  line-height: 80px;
+  z-index: -2;
+  background-color: $primary;
+  color: white;
+  text-transform: uppercase;
+  width: 100%; 
+  clear: both;
+  
+  a {
     color: $links;
     text-transform: uppercase;
   }
-  li a:hover {
+  a:hover {
     color: $hover;
   }
-  
-  li .active {
+
+  .active {
     color: $primary;
     background-color: $hover;
   }
+  
+  #footer-content {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    padding: 0 0 0 10%;
+    margin: 0;
+    z-index: -1;
+  }
+  
+  ul {
+    display: inline-block;
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0 6px;
+      display: inline-block;
+      a {
+        color: $links;
+        text-transform: uppercase;
+      }
+      a:hover {
+        color: $hover;
+      }
+
+      .active {
+        color: $primary;
+        background-color: $hover;
+      }
+    }
+  }
 }
+
