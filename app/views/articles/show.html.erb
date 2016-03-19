@@ -1,23 +1,25 @@
 <div class="container">
-  <%- model_class = Article -%>
-    <div class="page-header">
-      <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-    </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+       <div class="post">
+         <%- model_class = Article -%>
+         
+           <div class="post-header">
+             <h1><%=t '.title', :title => model_class.model_name.human.titleize %></h1>
+           </div><!-- .post-header -->
+           
+           <div class="post-body">
+             <%= @article.description %>
+           </div><!-- .post-body -->
 
-    <dl class="dl-horizontal">
-      <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-      <dd><%= @article.title %></dd>
-      <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-      <dd><%= @article.description %></dd>
-    </dl>
-
-    <%= link_to t('.back', :default => t("helpers.links.back")),
-                  articles_path, :class => 'btn btn-default'  %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                  edit_article_path(@article), :class => 'btn btn-default' %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                  article_path(@article),
-                  :method => 'delete',
-                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                  :class => 'btn btn-danger' %>
-</div>
+           <div class="post-options">
+             <%= link_to t('.back', :default => t("helpers.links.back")),
+             articles_path, :class => 'btn btn-default'  %>
+             <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                           edit_article_path(@article), :class => 'btn btn-default' %>
+             <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article '#{@article.title}'?"}, class: "btn btn-danger" %>
+            </div><!-- .post-buttons -->
+        </div><!-- .post -->
+      </div><!-- .columns -->
+    </div><!-- .row -->
+  </div><!-- .container -->
