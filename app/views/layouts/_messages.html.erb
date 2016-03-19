@@ -1,8 +1,15 @@
-<div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="<%= flash_class(name) %> fade-out">
-      <a href="#" data-dismiss="alert" class="close">&times;</a>
-      <%= msg %>
-    </div><!-- flash_class helper -->
-  <% end %>
+
+ <div class="container" style="padding-top: 40px;">
+
+ <div class="row">
+   <div class="col-sm-8 col-sm-offset-2">
+     <% flash.each do |name, msg| %>
+     <div class="<%= flash_class(name) %> fade-out">
+       <a href="#" data-dismiss="alert" class="close">&times;</a>
+       <%= content_tag :div, msg, :id => flash_class(name) if msg.is_a?(String) %>
+     </div><!-- flash_class helper -->
+     <% end %>
+   </div>
+ </div>
+  
 </div>
