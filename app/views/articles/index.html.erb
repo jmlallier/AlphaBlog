@@ -1,7 +1,12 @@
 <div class="container">
   <div class="text-center">
-    <h1><%=t '.the-blog', "Blog" => model_class.model_name.human.pluralize.titleize %></h1>
+    <h1>The Blog</h1>
+  </div>
+  <div class="text-center">
+    <%= will_paginate %>
   </div>
   <%= render 'article', obj: @articles %>
-  
+  <div class="text-center">
+    <%= will_paginate %>
+  </div>
 </div><!-- .container -->

@@ -1,10 +1,10 @@
-<div class="container">
-  <h1 class="text-center">Welcome to <%= @user.username %>'s profile</h1>
-  
-    <div class="text-center">
+<div class="container text-center">
+  <h1>Welcome to <%= @user.username %>'s profile</h1>
       <%= gravatar_for @user, size: 150 %>
-    </div>
   
-  <h2 class="text-center"><%= @user.username %>'s articles</h2>
-  <%= render 'articles/article', obj: @user.articles %>
+  <h2><%= @user.username %>'s articles</h2>
+  <%= will_paginate @user_articles %>
+  <%= render 'articles/article', obj: @user_articles %>
+  <%= will_paginate @user_articles %>
+
 </div>
