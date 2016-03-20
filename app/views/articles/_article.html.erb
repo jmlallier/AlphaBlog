@@ -18,7 +18,7 @@
       </div><!-- .post-body -->
 
       <div class="post-details">
-        <small><%= article.title %> was created by <%= link_to(article.user.username, article.user([:id])) if article.user %> at <%= time_ago_in_words(article.created_at) %> ago and was last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
+        <small><%= article.title %> was created by <%= link_to(article.user.username, article.user([:id])) if article.user %> <%= time_ago_in_words(article.created_at) %> ago and was last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
       </div><!-- .post-details -->
 
       <div class="post-options">
