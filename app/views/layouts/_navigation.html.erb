@@ -8,11 +8,15 @@
     <% end %>
     
      <%= menu_group pull: :right do %>
-      <%= drop_down "Account" do %>
-        <%= menu_item "Log in", login_path %>
-        <%= menu_item "Log out", logout_path, method: :delete %>
-        <%= menu_item "Create new article", new_article_path %>
-      <% end %>
+      <% if logged_in? %>
+        <%= menu_item "New Post", new_article_path %>   
+<%= drop_down current_user.username do %>
+          <%= menu_item "Log out", logout_path, method: :delete %>
+        <% end %>
+      <% else %>
+          <%= menu_item "Log in", login_path %>
+          <%= menu_item "Sign up", signup_path %>
+        <% end %>
     <% end %>
   
   <% end %>
