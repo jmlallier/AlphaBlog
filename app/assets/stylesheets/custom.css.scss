@@ -213,21 +213,26 @@ footer {
 
 .post {
   padding: 20px;
+  margin-bottom: 60px;
   .post-header {
     margin: 30px 0;
-    border-bottom: 1px solid $primary;
-    padding: 0 20px;
+    border-bottom: 1px solid #eaeaea;
     h1 {
       color: $primary;
     }
   }
 
   .post-details {
-
+    padding: 5px 0;
+    margin-bottom: 20px;
+    font-size: 11px;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
   }
 
   .post-body {
-    padding: 30px 20px;
     margin-bottom: 30px;
     p {
       font-size: 16px;
@@ -238,14 +243,14 @@ footer {
 
   .post-options {
     padding: 0 20px;
-    .btn.btn-default {
+    .btn.btn-default, .btn.btn-primary {
       background-color: $links !important;
       color: white;
       border: none;
       text-transform: uppercase !important;
     }
 
-    .btn.btn-default:hover {
+    .btn.btn-default:hover, .btn.btn-primary:hover {
       background-color: $hover !important;
       border: none;
     }
