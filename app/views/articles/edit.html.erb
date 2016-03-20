@@ -1,7 +1,13 @@
 <div class="container">
- <%- model_class = Article -%>
-  <div class="page-header">
-    <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-  </div>
-  <%= render :partial => 'form' %>
+ <div class="row">
+   <div class="col-sm-8 col-sm-offset-2">
+     <div class="post">
+       <%- model_class = Article -%>
+        <div class="page-header">
+          <h1>Editing: <%= @article.title %></h1>
+        </div>
+        <%= render :partial => 'form' %>
+      </div>
+   </div>
+ </div>
 </div>
