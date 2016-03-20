@@ -1,13 +1,11 @@
 <div class="container">
- <div class="row">
-   <div class="col-sm-8 col-sm-offset-2">
-     <div class="post">
-       <%- model_class = Article -%>
-        <div class="page-header">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <%- model_class = Article -%>
+        <div class="page-header text-center">
           <h1>Editing: <%= @article.title %></h1>
         </div>
-        <%= render :partial => 'form' %>
       </div>
-   </div>
- </div>
+    </div>
+  <%= render :partial => 'form' %>
 </div>

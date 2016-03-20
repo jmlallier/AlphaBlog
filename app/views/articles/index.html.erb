@@ -2,10 +2,12 @@
   <div class="text-center">
     <h1>The Blog</h1>
   </div>
-  <div class="text-center">
-    <%= will_paginate %>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <%= render 'article', obj: @articles %>
+    </div>
   </div>
-  <%= render 'article', obj: @articles %>
   <div class="text-center">
     <%= will_paginate %>
   </div>
