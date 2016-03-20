@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%- model_class = Article -%>
+
+
+
+    <% obj.each do |article| %>
+    <div class="post">
+
+      <div class="post-header">
+        <h2>
+          <%= link_to article.title, article_path(article) %>
+        </h2>
+      </div><!-- .post-header -->
+
+      <div class="post-body">
+        <%= truncate(article.description, length: 350) %>
+      </div><!-- .post-body -->
+
+      <div class="post-details">
+        <small><%= article.title %> was created by <%= article.user.username if article.user %> at <%= time_ago_in_words(article.created_at) %> ago and was last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
+      </div><!-- .post-details -->
+
+      <div class="post-options">
+
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+edit_article_path(article), :class => 'btn btn-default' %>            
+        <%= link_to "Delete", article_path(article.id), method: :delete, data: { confirm: "Are you sure you want to delete the article '#{article.title}'?"}, class: "btn btn-danger" %>
+
+      </div><!-- .post-options -->
+
+    </div><!-- .post -->
+
+    <% end %>
+
+  </div><!-- .col -->
+</div><!-- .row -->
