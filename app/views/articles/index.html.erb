@@ -21,7 +21,7 @@
             </div><!-- .post-body -->
 
             <div class="post-details">
-              <%= "#{article.title} was created" %> <%= article.created_at %>
+              <small><%= article.title %> was created by <%= article.user.username if article.user %> at <%= time_ago_in_words(article.created_at) %> ago and was last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
             </div><!-- .post-details -->
 
             <div class="post-options">
