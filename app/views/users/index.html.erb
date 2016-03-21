@@ -1,20 +1,25 @@
-<div class="container">
-  <h1 class="text-center">Alpha Bloggers</h1>
+<div class="container text-center" style="padding-bottom: 100px;">
+  <h1>Bloggers</h1>
 
     <% @users.each do |user| %>
-    <div class="row">
-      <ul class="list-unstyled">
-        <li class="col-sm-2 col-sm-offset-2">
-          <%= link_to gravatar_for(user, size: 150), user_path(user) %>
-        </li>
-        <li class="col-sm-8">
-          <small><%= pluralize(user.articles.count, "article") if user.articles  %></small>
-        </li>
-        <% if logged_in? and current_user.admin? %>
-          <li><%= link_to "Delete this user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete the user and all their articles?"} %></li>
-        <% end %>
-      </ul>
-    </div>
+    <div class="row clearfix">
+       <div class="col-sm-8 col-sm-offset-2 page-header text-center">
+         <h3><%= user.username %><% if logged_in? and current_user.admin? %>
+           <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete the user and all their articles?"}, :class => 'btn btn-xs btn-danger pull-right' %>
+           <% end %></h3>
+       </div>
+      </div>
+      <div class="row clearfix" style="margin-top: 50px;">
+       <div class="col-sm-4">
+         <%= link_to gravatar_for(user, size: 150), user_path(user), :class => 'pull-right' %>  
+       </div>
+       <ul class="list-unstyled pull-left" style="margin-left: 80px;">
+         <% user.articles.each do |a| %>
+           <li align="left"><%= link_to a.title, article_path(a) %></li>
+         <% end %>
+         
+       </ul>
+      </div>
 
     <%= will_paginate %>
 
