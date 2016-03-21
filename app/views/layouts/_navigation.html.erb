@@ -12,8 +12,9 @@
       <% if logged_in? %>
         <%= menu_item "New Post", new_article_path %>   
         <%= drop_down current_user.username do %>
-        <%= menu_item "Edit profile", edit_user_path(current_user) %>
-        <%= menu_item "View profile", user_path(current_user) %>
+          <li role="separator" class="divider"></li>
+          <%= menu_item "Edit profile", edit_user_path(current_user) %>
+          <%= menu_item "View profile", user_path(current_user) %>
          <li role="separator" class="divider"></li>
           <%= menu_item "Log out", logout_path, method: :delete %>
         <% end %>

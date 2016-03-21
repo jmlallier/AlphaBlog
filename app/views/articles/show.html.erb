@@ -19,7 +19,7 @@
            <div class="post-options">
              <%= link_to t('.back', :default => t("helpers.links.back")),
              articles_path, :class => 'btn btn-default'  %>
-             <% if logged_in? && current_user == @article.user %>
+             <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
                <%= link_to t('.edit', :default => t("helpers.links.edit")),
                              edit_article_path(@article), :class => 'btn btn-default' %>
                <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article '#{@article.title}'?"}, class: "btn btn-danger" %>

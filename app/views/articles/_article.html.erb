@@ -17,7 +17,7 @@
       <small><%= article.title %> was created by <%= link_to(article.user.username, article.user([:id])) if article.user %> <%= time_ago_in_words(article.created_at) %> ago and was last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
     </div><!-- .post-details -->
 
-    <% if logged_in? && current_user == article.user %>
+    <% if logged_in? && (current_user == article.user || current_user.admin?) %>
       <div class="post-options">
 
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
