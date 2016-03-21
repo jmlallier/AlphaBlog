@@ -36,7 +36,7 @@ a:hover {
 }
 
 nav {
-  margin-bottom: 40px;
+  margin-bottom: 0;
   .navbar-brand {
   float: left;
   font-size: 1.7em;
@@ -88,10 +88,11 @@ nav {
   background-color: #fff;
   clear: both;
   min-height: 100vh;
+  padding-top: 50px;
 }
 
 .messages {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 #main {
@@ -101,7 +102,8 @@ nav {
   min-height: 100vh;
   text-align: center;
   margin: 0;
-  padding: 0;
+  margin-top: -50px;
+  padding: 50px 0;
   
   h1 {
     color: $primary;
