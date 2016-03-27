@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 align="center">Categories</h1>
+  <% @categories.each do |category| %>
+  
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="post">
+
+        <div class="post-header">
+          <h2>
+            <%= link_to category.name, category_path(category) %>
+          </h2>
+        </div><!-- .post-header -->
+
+        <div class="post-details">
+          <small><%= category.name %> was created <%= time_ago_in_words(category.created_at) %> ago and was last updated <%= time_ago_in_words(category.updated_at) %> ago</small>
+        </div><!-- .post-details -->
+
+        <% if logged_in? && current_user.admin? %>
+        <div class="post-options">
+
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+edit_category_path(category), :class => 'btn btn-default' %>            
+
+          <%= link_to "Delete", category_path(category.id), method: :delete, data: { confirm: "Are you sure you want to delete the category '#{category.name}'?"}, class: "btn btn-danger" %>
+
+        </div><!-- .post-options -->
+        <% end %>
+
+      </div><!-- .post -->
+    </div>
+  </div>
+  
+  <% end %>
+  <div class="text-center">
+    <%= paginate @categories %>
+  </div>
+</div>
