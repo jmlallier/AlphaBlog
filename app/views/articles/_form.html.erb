@@ -16,19 +16,34 @@
       </div>
     </div>
     
-    <div class="row">
-      <div class="form-group">
-        
-        <div class="col-sm-4">
-          <%= f.label :description, :class => 'control-label pull-right' %>
-        </div>
-        <div class="col-sm-5">
-          <%= f.text_area :description, :class => 'form-control pull-left' %>
-          <%= f.error_span(:description) %>
-        </div>
+  <div class="row">
+    <div class="form-group">
 
+      <div class="col-sm-4">
+        <%= f.label :description, :class => 'control-label pull-right' %>
       </div>
+      <div class="col-sm-5">
+        <%= f.text_area :description, :class => 'form-control pull-left' %>
+        <%= f.error_span(:description) %>
+      </div>
+
     </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+
+      <div class="col-sm-4">
+        <%= f.label :category, :class => 'control-label pull-right' %>
+      </div>
+      <div class="col-sm-5">
+        <%= f.collection_select(:category_ids, Category.all, :id, :name, { :class => "form-control"}) do |list|  %>
+        <% list.label(class: "control-label pull-right") {list.select(class: "form-control pull-left" + list.text) } %>
+        <% end %>
+        <%= f.error_span(:category) %>
+      </div>
+
+    </div>
+  </div>
  
     <div class="row">
       <div class="form-group">
