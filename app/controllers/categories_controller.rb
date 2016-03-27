@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
   
   def index
-    @categories = Category.order('created_at DESC').page params[:page]
+    @categories = Category.order('created_at ASC').page params[:page]
   end
   
   def new

@@ -5,18 +5,27 @@
       <%= menu_item "About Me", about_path %>
       <%= menu_item "Blog", articles_path %>
       <%= menu_item "Users", users_path %>
-      <%= menu_item "Categories", categories_path %>
+      <%= drop_down "Categories" do %>
+        <%= menu_item "All Categories", categories_path %>
+        <li class="divider" role="separator"></li>
+        <% Category.all.each do |c| %>
+           <%= menu_item c.name, category_path(c) %>
+        <% end %>
+      <% end %>
       <%= menu_item "Contact", "#" %>
     <% end %>
     
      <%= menu_group pull: :right do %>
       <% if logged_in? %>
-        <%= menu_item "New Post", new_article_path %>   
         <%= drop_down current_user.username do %>
+          <%= menu_item "New Post", new_article_path %>
+          <% if current_user.admin? %>
+            <%= menu_item "New Category", new_category_path %>
+          <% end %>
           <li role="separator" class="divider"></li>
           <%= menu_item "Edit profile", edit_user_path(current_user) %>
           <%= menu_item "View profile", user_path(current_user) %>
-         <li role="separator" class="divider"></li>
+          <li role="separator" class="divider"></li>
           <%= menu_item "Log out", logout_path, method: :delete %>
         <% end %>
       <% else %>
