@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="text-center">
+    <h1><%= @category.name %></h1>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <%= render 'articles/article', obj: @category_articles %>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= paginate @category_articles %>
+  </div>
+</div><!-- .container -->

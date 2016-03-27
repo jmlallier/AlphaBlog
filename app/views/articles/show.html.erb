@@ -13,10 +13,14 @@
            </div><!-- .post-body -->
 
            <div class="post-details">
-             <% if @article.categories %>
-             <small>Category: <%= link_to @article.categories.(:name), category_path %> </small>
+             <% if @article.categories.any? %>
+             <p>
+               <small>Category: <%= render @article.categories %> </small>
+             </p>
              <% end %>
-             <small><%= @article.title %> was created by <%= @article.user.username if @article.user %> at <%= time_ago_in_words(@article.created_at) %> ago and was last updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
+             <p>
+               <small><%= @article.title %> was created by <%= @article.user.username if @article.user %> at <%= time_ago_in_words(@article.created_at) %> ago and was last updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
+             </p>
            </div><!-- .post-details -->
           
            <div class="post-options">
