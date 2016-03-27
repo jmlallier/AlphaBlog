@@ -1,14 +1,23 @@
 <div class="container">
-  <div class="text-center">
-    <h1><%= @category.name %></h1>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <%= render 'articles/article', obj: @category_articles %>
+  <div class="post">
+    <div class="post-options text-center">
+      <h1><%= @category.name %></h1>
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+    categories_path, :class => 'btn btn-default'  %>
+      <% if logged_in? && current_user.admin? %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    edit_category_path(@category), :class => 'btn btn-default' %>
+      <%= link_to "Delete", category_path(@category), method: :delete, data: { confirm: "Are you sure you want to delete the Category '#{@category.name}'?"}, class: "btn btn-danger" %>
+      <% end %>
+    </div><!-- .post-buttons -->
+    
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <%= render 'articles/article', obj: @category_articles %>
+      </div>
     </div>
-  </div>
-  <div class="text-center">
-    <%= paginate @category_articles %>
+    <div class="text-center">
+      <%= paginate @category_articles %>
+    </div>
   </div>
 </div><!-- .container -->
